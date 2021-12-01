@@ -4,4 +4,4 @@ If I find time to solve the puzzle, I will publish my solution made with **R** h
 
 |Day|Puzzle 1|Puzzle 2|
 |---|---|---|
-| 1 |  |  |
+| 1 | &#10004; | &#10004; |
