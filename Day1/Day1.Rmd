@@ -1,0 +1,36 @@
+---
+title: "Day1"
+author: "Johannes Friedrich"
+date: "12/1/2021"
+output: github_document
+---
+
+```{r setup, include=FALSE}
+knitr::opts_chunk$set(echo = TRUE)
+library(tidyverse)
+```
+
+## Puzzle 1
+
+```{r read_file}
+## read in the file
+
+input <- scan(file = "input.txt", what = integer())
+```
+
+```{r}
+sum(diff(input) >0)
+```
+
+## Puzzle 2
+
+```{r message=FALSE}
+library(zoo)
+```
+
+```{r}
+temp <- rollsum(input, 3, align = "left")
+
+sum(diff(temp) >0)
+```
+
