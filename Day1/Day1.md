@@ -7,7 +7,6 @@ Johannes Friedrich
 
 ``` r
 ## read in the file
-
 input <- scan(file = "input.txt", what = integer())
 ```
 
@@ -24,7 +23,7 @@ library(zoo)
 ```
 
 ``` r
-temp <- rollsum(input, 3, align = "left")
+temp <- rollsum(input, 3, align = "center")
 
 sum(diff(temp) >0)
 ```
