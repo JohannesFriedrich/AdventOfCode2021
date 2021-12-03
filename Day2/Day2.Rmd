@@ -7,13 +7,16 @@ output: github_document
 
 ```{r setup, include=FALSE}
 knitr::opts_chunk$set(echo = TRUE)
+```
+
+```{r, message=FALSE}
 library(tidyverse)
 ```
 
 ## Puzzle 1
 
 ```{r read_file}
-## read in the file
+## read file
 
 input <- scan(file = "input.txt", what = character(), sep = "\n") %>% 
   str_split(" ") %>% 

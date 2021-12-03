@@ -3,10 +3,14 @@ Day2
 Johannes Friedrich
 12/2/2021
 
+``` r
+library(tidyverse)
+```
+
 ## Puzzle 1
 
 ``` r
-## read in the file
+## read the file
 
 input <- scan(file = "input.txt", what = character(), sep = "\n") %>% 
   str_split(" ") %>% 

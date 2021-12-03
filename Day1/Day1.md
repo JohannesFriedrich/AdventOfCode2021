@@ -3,10 +3,14 @@ Day1
 Johannes Friedrich
 12/1/2021
 
+``` r
+library(tidyverse)
+```
+
 ## Puzzle 1
 
 ``` r
-## read in the file
+## read file
 input <- scan(file = "input.txt", what = integer())
 ```
 
