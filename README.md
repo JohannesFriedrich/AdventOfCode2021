@@ -8,3 +8,4 @@ If I find time to solve the puzzle, I will publish my solution made with **R** h
 |  2  | &#10004; | &#10004; |
 |  3  | &#10004; | &#10004; |
 |  4  | &#10004; | &#10004; |
+|  5  | &#10004; | &#10004; |
