@@ -1,0 +1,72 @@
+---
+title: "Day7"
+author: "Johannes Friedrich"
+date: "12/7/2021"
+output: github_document
+---
+
+```{r setup, include=FALSE}
+knitr::opts_chunk$set(echo = TRUE)
+```
+
+```{r, message=FALSE}
+library(tidyverse)
+library(parallel)
+```
+
+```{r read_file, warning = FALSE}
+## read file
+input <- scan(file = "input.txt", what = character()) %>% 
+  str_split(",") %>% 
+  unlist() %>% 
+  as.integer()
+```
+
+```{r helper_functions}
+df <-   input %>% 
+  as_tibble() %>% 
+  mutate(id = row_number())
+
+get_differences <- function(fuel){
+  df %>%
+  mutate(fuel = fuel,
+         diff = abs(value-fuel)) %>% 
+  summarise(sum_diff = sum(diff)) %>% 
+  pull(sum_diff)
+}
+
+```
+
+
+## Puzzle 1
+
+```{r}
+## brute force
+parallel::mclapply(1:1000, get_differences) %>% 
+  unlist() %>% 
+  min()
+```
+
+## Puzzle 2
+
+```{r}
+get_differences <- function(fuel){
+  df %>%
+  mutate(fuel = fuel,
+         diff = abs((value-fuel))) %>% 
+    rowwise() %>% 
+    mutate(cumsum = sum(0:diff)) %>% 
+    ungroup() %>% 
+    summarise(sum = sum(cumsum)) %>% 
+  pull(sum)
+}
+```
+
+
+```{r}
+## brute force
+parallel::mclapply(1:1000, get_differences) %>% 
+  unlist() %>% 
+  min()
+```
+
