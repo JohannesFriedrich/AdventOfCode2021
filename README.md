@@ -11,3 +11,6 @@ If I find time to solve the puzzle, I will publish my solution made with **R** h
 |  5  | ⭐ | ⭐ |
 |  6  | ⭐ | ⭐ |
 |  7  | ⭐ | ⭐ |
+|  8 | |
+|  9  | |
+|  10 | ⭐ | ⭐ |
