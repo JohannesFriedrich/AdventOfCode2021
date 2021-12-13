@@ -1,0 +1,100 @@
+---
+title: "Day13"
+author: "Johannes Friedrich"
+date: "12/13/2021"
+output: github_document
+---
+
+```{r setup, include=FALSE}
+knitr::opts_chunk$set(echo = TRUE)
+```
+
+```{r, message=FALSE}
+library(tidyverse)
+```
+
+```{r read_file, warning = FALSE}
+## read file
+input <- scan(file = "input.txt", what = character(), sep="\n", blank.lines.skip=FALSE)
+
+fold <- which(input == "")
+
+coord <- input[1:(fold-1)] %>%  
+  str_split(",") %>% 
+  sapply(function(x){as.integer(x)+1L}) %>% t()
+coord <- coord[,c(2,1)]
+
+folds <- input[(fold+1):length(input)] %>% 
+  str_remove("fold along ") %>% 
+  str_split("=") %>% 
+  sapply(function(x){
+    t <- as.integer(x[2])
+    names(t) <- x[1]
+    return(t)
+  })
+
+x_max <- folds[which(names(folds)=="x")[1]]
+y_max <- folds[which(names(folds)=="y")[1]]
+
+grid <- matrix(0L, nrow = 2*y_max+1, ncol = 2*x_max+1)
+
+
+## fill with 1
+grid[coord] <- 1L
+
+```
+
+```{r helper_functions}
+matrix <- grid
+fold <- folds[1]
+fold_matrix <- function(matrix,fold){
+  
+  if (names(fold) == "x"){
+    
+    left_matrix <- matrix[,1:fold]
+    right_matrix <- matrix[,ncol(matrix):(ncol(matrix)-fold+1)]
+    return(left_matrix+right_matrix)
+    
+  } else if (names(fold) == "y"){
+    upper_matrix <- matrix[1:fold,]
+    lower_matrix <- matrix[nrow(matrix):(nrow(matrix)-fold+1),]
+    return(upper_matrix+lower_matrix)
+  }
+}
+```
+
+## Puzzle 1
+
+```{r}
+
+result <- function(matrix, fold, puzzle1){
+  
+  for (fold in 1:length(folds)){
+    matrix <- fold_matrix(matrix, folds[fold])
+    if (fold == 1 & puzzle1 == TRUE) return(length(matrix[which(matrix>=1)]))
+  }
+  
+  return(matrix)
+  
+}
+
+```
+
+```{r}
+matrix <- grid
+result(matrix, folds, puzzle1 = TRUE)
+```
+
+## Puzzle 2
+
+```{r}
+matrix <- grid
+result(matrix, folds, puzzle1 = FALSE)
+## FGKCKBZG
+```
+
+
+
+
+
+
