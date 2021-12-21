@@ -15,5 +15,13 @@ If I find time to solve the puzzle, I will publish my solution made with **R** h
 |  9  | |
 |  10 | ⭐ | ⭐ |
 |  11 | | 
-|  12 |     | | 
+|  12 | | 
 |  13 | ⭐ | ⭐ |
+|  14 | ⭐ | 
+|  15 | |
+|  16 | |
+|  17 | |
+|  18 | |
+|  19 | |
+|  20 | | 
+|  21 | ⭐ | 
