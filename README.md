@@ -25,3 +25,4 @@ If I find time to solve the puzzle, I will publish my solution made with **R** h
 |  19 | |
 |  20 | | 
 |  21 | ⭐ | 
+|  22 | ⭐ | 
